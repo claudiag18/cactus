@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cactus - Your online shop</title>
+    <link rel="shortcut icon" href="{{url_for('static',filename='images/logo.jpg')}}">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Suez+One&display=swap" rel="stylesheet">
+    <!-- CSS styling -->
+    <link rel="stylesheet" type= "text/css" href="{{url_for('static',filename='css/styles.css')}}">
+    <!-- Fontawesome link -->
+    <script src="https://kit.fontawesome.com/f166265a6f.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+
+
+<!-- Navbar section -->
+  <nav class="navbar navbar-expand-xl">
+  <img src={{url_for('static', filename='/images/logo.jpg')}} alt="logo image" class="logo-bar" width="65" height="80">
+  <a class="navbar-brand">Cactus - Your online shop</a>
+  <button class="navbar-toggler menu_button" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    Menu
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="navbar-nav ms-auto">
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Clothing
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" href="{{url_for('product', id='kids_clothing')}}">Kids</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="{{url_for('product', id='women_clothing')}}">Women</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="{{url_for('product', id='men_clothing')}}">Men</a></li>
+        </ul>
+      </div>
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Shoes
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+          <li><a class="dropdown-item" href="{{url_for('product', id='kids_shoes')}}">Kids</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="{{url_for('product', id='women_shoes')}}">Women</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="{{url_for('product', id='men_shoes')}}">Men</a></li>
+        </ul>
+      </div>
+      <a class="nav-link" href="{{url_for('home')}}">Home</a>
+      <a class="nav-link" href="{{url_for('cart', id=9999999)}}"><i class="fas fa-shopping-cart"></i>{{ num_items }}</a>
+    </div>
+  </div>
+  </nav>
+
+<!-- Checkout section -->
+<section class="cart">
+  <div class="cart_container">
+    <div class='cart_header'>
+        <h3 class='heading'>Your Final Order</h3>
+     </div>
+      {% if products: %}
+        {% for product in products: %}
+          <div class='cart-items row-cols x-grid gap-5 justify-content-center'>
+             <div class='image-box col-3'>
+                <img src={{url_for('static', filename=product.img_file)}} style='height:120px' />
+             </div>
+             <div class='about col-5'>
+                 <h1 class='title'>{{ product.display }}</h1>
+                 <h3 class='subtitle'>{{ product.description }}</h3>
+             </div>
+             <div class="col-4">
+                 <div class="row">
+                     <div class='counter col-6'>
+                        <div class='count'>{{ product.num_cart }}</div>
+                    </div>
+                    <div class='prices col-6'>
+                        <div class='amount'> ${{ product.price_text }}/unit</div>
+                    </div>
+                 </div>
+             </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+      <hr>
+      <form class='checkout' action="/create-checkout-session" method="post">
+          <div class="row">
+              <div class="col-6">
+                 <div class='subtotal'>Grand-Total</div>
+                 <div class='items'>{{ num_items}} Items</div>
+              </div>
+              <div class='total-amount col-6'>${{ cost }}</div>
+              <input type="text" value={{cost}} name="cost" hidden>
+          </div>
+          <div class="row" style="justify-content: center;">
+              <a class='btn btn-primary checkout_button' href="{{ url_for('home') }}">Continue Shopping</a>
+          </div>
+          <div class="row" style="justify-content: center;">
+              <a class='btn btn-primary checkout_button' style='margin-top:15px;' href="{{ url_for('cart', id=9999999) }}">Edit Cart</a>
+          </div>
+          <div class="row" style="justify-content: center;">
+              <button class='btn btn-primary checkout_button' style='margin-top:15px;' id="myBtn" type="submit">Pay Now</button>
+          </div>
+      </form>
+  </div>
+  <div class="position-fixed bottom-0 start-0 p-3 toast" id='myToast'>
+    <div class="toast-header">
+      <img src={{url_for('static', filename='/images/logo.jpg')}} class="rounded me-2" alt="logo" width="40" height="40">
+      <h6 class="me-auto">TRY THE FOLLOWING CREDIT CARDS AT PAYMENT</h6>
+      <button type="button" class="btn" onclick="seeOptions()"><i id='btn_options' class="fas fa-window-maximize"></i></button>
+    </div>
+    <div class="toast-body" id="card_options">
+        <p>For successful payment: 4242 4242 4242 4242</p>
+        <p>For payment requiring authentication: 4000 0025 0000 3155</p>
+        <p>For declined payment: 4000 0000 0000 9995</p>
+        <p>Use any future date for expiration date and any 3 digit CVC</p>
+    </div>
+  </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            var btn = document.getElementById("myBtn");
+            var element = document.getElementById("myToast");
+            var myToast = new bootstrap.Toast(element);
+            btn.addEventListener("mouseover", function(){
+                myToast.show();
+            });
+        });
+
+       function seeOptions() {
+           button_results = document.getElementById('btn_options');
+           var x = document.getElementById("card_options");
+           if(button_results.className == "fas fa-window-minimize"){
+               button_results.classList.remove("fa-window-minimize");
+               button_results.classList.add("fa-window-maximize");
+               x.style.display = "none";
+           }
+           else{
+               button_results.classList.add("fa-window-minimize");
+               button_results.classList.remove("fa-window-maximize");
+               x.style.display = "block";
+           }
+       };
+    </script>
+</section>
+
+{% include 'footer.html' %}

@@ -1,0 +1,380 @@
+body {
+    background-image: url("/static/images/background-photo.jpg");
+    background-size: cover;
+    background-color:#99A799;
+    background-position: center;
+    background-blend-mode:screen;
+    min-height: 95vh;
+}
+
+
+.container {
+    padding: 70px 20px 70px 20px;
+}
+
+
+.container-fluid {
+    padding-bottom: 80px;
+}
+
+/* Styling header sections */
+.navbar {
+    border: 0;
+    border-radius: 0;
+    margin-top: 0;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.3rem;
+    letter-spacing: 4px;
+    color: #536162;
+    background-color: white;
+}
+
+.navbar-brand {
+    color: #536162;
+    padding-left: 20px;
+    font-size: 2.5rem;
+}
+
+
+.navbar-nav  li a:hover {
+    color: #cf0000 !important;
+}
+
+.navbar .navbar-nav .nav-link {
+    color: #536162;
+    background-color: white;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.navbar .navbar-nav a:hover {
+    color: #cf0000 !important;
+}
+
+.account_button {
+    margin-right: 50px;
+}
+
+.logo-bar {
+    margin-left: 25px;
+    border-radius: 10px;
+}
+
+.menu_button {
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+	font-size: 18px;
+	border: 3px solid white;
+	background-color: #536162;
+}
+
+.menu_button:hover {
+    color: #cf0000 !important;
+}
+
+.commenterImage {
+    width:30px;
+    margin-right:15px;
+    margin-top:5px;
+    height:100%;
+    float:left;
+}
+.commenterImage img {
+    width:100%;
+    border-radius:50%;
+}
+
+
+/* Styling for footer section */
+.footer-padding {
+	padding-bottom: 15px;
+}
+
+.footer {
+	text-align: center;
+	position: fixed;
+	height: 60px;
+	bottom: 0;
+	width: 100%;
+    color: #536162;
+    background-color: white;
+    padding-top: 5px;
+    z-index:2;
+}
+
+.footer p {
+    font-family: 'Josefin Sans', sans-serif;
+	font-size: 12px
+    color: #536162;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+
+/* Styling home page */
+.col {
+    width:25%;
+}
+
+
+/* Styling for login page */
+.loginFormat {
+  max-width: 400px;
+  margin: 30px auto;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+  background-color: white;
+  color: #536162;
+  padding: 20px 30px 20px 30px;
+}
+
+.loginLogo {
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.login_img {
+    width: 50px;
+    height: 60px;
+    border-radius: 5px;
+}
+
+.forgot_password {
+    text-align: center;
+}
+
+.forgot_password p {
+    margin-top: 1rem;
+}
+
+.signButton {
+  margin: 0px 100px 0 100px;
+  width: 150px;
+}
+
+.list-group-item a {
+    color: #536162;
+    font-size:1.2rem;
+    text-decoration:none !important;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.list-group-item a:hover {
+    color: #cf0000 !important;
+    text-decoration:none !important;
+}
+
+/* Styling messages */
+.flash_message {
+    color: red;
+}
+
+
+/* Styling product */
+.prod_title {
+    color: #AE431E;
+    self-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 3rem;
+}
+
+
+/* Styling Cart */
+.cart {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+.cart_container {
+     padding: 15px;
+     padding-bottom: 60px;
+     margin-top: 25px;
+     width: 70%;
+     height: 85%;
+     background-color: #ffffff;
+     border-radius: 20px;
+     box-shadow: 0px 25px 40px #1687d933;
+}
+
+.cart_header {
+     margin: auto;
+     width: 90%;
+     height: 15%;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+}
+
+.heading {
+     font-size: 2rem;
+     font-family: 'Josefin Sans', sans-serif;
+     font-weight: 700;
+     color: #2F3841;
+}
+
+.action {
+     font-size: 1.3rem;
+     font-family: 'Josefin Sans', sans-serif;
+     font-weight: 600;
+     color: #E44C4C;
+     cursor: pointer;
+     border-bottom: 1px solid #E44C4C;
+}
+
+.cart-items {
+     margin: auto;
+     margin-top: 10px;
+     width: 90%;
+     height: 30%;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+}
+
+.image-box {
+     width: 12%;
+     text-align: center;
+}
+
+.about {
+    height: 100%;
+}
+
+.title {
+     padding-top: 5px;
+     line-height: 10px;
+     font-size: 28px;
+     font-family: 'Josefin Sans', sans-serif;
+     font-weight: 800;
+     color: #202020;
+}
+
+.subtitle {
+     margin-top: 15px;
+     line-height: 10px;
+     font-size: 18px;
+     font-family: 'Josefin Sans', sans-serif;
+     font-weight: 600;
+     color: #909090;
+}
+
+.counter {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+}
+
+.prices {
+     height: 100%;
+     text-align: right;
+}
+
+.amount {
+     padding-top: 20px;
+     font-size: 26px;
+     font-family: 'Josefin Sans', sans-serif;
+     font-weight: 800;
+     color: #202020;
+}
+
+.update_cart {
+     padding: 3px 5px;
+     font-size: 1rem;
+     font-family: 'Josefin Sans', sans-serif;
+     font-weight: 400;
+     cursor: pointer;
+}
+
+.remove {
+     padding-top: 5px;
+     font-size: 1rem;
+     font-family: 'Josefin Sans', sans-serif;
+     font-weight: 600;
+     color: #E44C4C;
+     cursor: pointer;
+}
+
+.btn_cart {
+     width: 40px;
+     height: 40px;
+     border-radius: 50%;
+     background-color: #d9d9d9;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-size: 20px;
+     font-family: 'Josefin Sans', sans-serif;
+     color: #202020;
+     cursor: pointer;
+}
+
+.count {
+     font-size: 20px;
+     font-family: 'Josefin Sans', sans-serif;
+     font-weight: 900;
+     color: #202020;
+     border: 0px;
+     width:20px;
+}
+
+hr{
+     width: 66%;
+     float: right;
+     margin-right: 5%;
+}
+
+.checkout{
+     float: right;
+     margin-right: 5%;
+     width: 28%;
+}
+
+.total {
+     width: 100%;
+     display: flex;
+     justify-content: space-between;
+}
+
+.subtotal {
+     font-size: 22px;
+     font-family: 'Josefin Sans', sans-serif;
+     font-weight: 700;
+     color: #202020;
+}
+
+.items {
+     font-size: 16px;
+     font-family: 'Josefin Sans', sans-serif;
+     font-weight: 500;
+     color: #909090;
+     line-height: 10px;
+}
+
+.total-amount {
+     font-size: 36px;
+     font-family: 'Josefin Sans', sans-serif;
+     font-weight: 900;
+     color: #202020;
+}
+
+.checkout_button {
+    width:70%;
+    padding: 3px 5px;
+    font-size: 1.2rem;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+#myToast {
+    z-index: 5;
+    background-color:#D3E4CD;
+    border-radius: 5px;
+    position:absolute;
+}
+
+#card_options {
+    display: none;
+}
+

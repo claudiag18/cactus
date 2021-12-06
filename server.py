@@ -46,7 +46,7 @@ class Product(db.Model):
 
 # GLOBAL VARIABLES
 CART_LIST = []
-DOMAIN = 'http://localhost:5000'
+DOMAIN = 'https://cactus-tiendita.herokuapp.com'
 
 # SETTING UP STRIPE
 stripe.api_key = os.environ.get("STRIPE_SECRET_KEY")
